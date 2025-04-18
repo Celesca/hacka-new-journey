@@ -1,53 +1,75 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import Link from "next/link";
 
 const LoginForm: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
+    setError("");
     if (!email || !password) {
-      setError('Please fill in all fields.');
+      setError("Please fill in all fields.");
       return;
     }
-    // Add your login logic here
-    console.log('Logging in with:', { email, password });
+    console.log("Logging in with:", { email, password });
   };
 
   return (
-    <div className="bg-yellow-50 p-8 rounded-xl shadow-lg max-w-md w-full animate-fadeIn">
-      <h2 className="text-3xl font-bold text-orange-500 text-center mb-6">
-        Welcome Back
-      </h2>
-      {error && <p className="text-red-500 text-center mb-4">{error}</p>}
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <form
+      onSubmit={handleSubmit}
+      className="bg-white/90 backdrop-blur-lg p-8 rounded-2xl shadow-lg space-y-6"
+    >
+      {error && (
+        <div className="text-red-500 text-center font-medium">{error}</div>
+      )}
+      <div className="flex flex-col space-y-1">
+        <label htmlFor="email" className="text-sm font-medium text-gray-700">
+          Email Address
+        </label>
         <input
+          id="email"
           type="email"
-          placeholder="Email"
           value={email}
-          onChange={e => setEmail(e.target.value)}
-          className="w-full p-3 border border-orange-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-300"
-          required
+          onChange={(e) => setEmail(e.target.value)}
+          className="p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-yellow-300 focus:border-transparent transition"
+          placeholder="you@example.com"
         />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          className="w-full p-3 border border-orange-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-300"
-          required
-        />
-        <button
-          type="submit"
-          className="w-full bg-gradient-to-r from-orange-400 to-yellow-400 text-white py-3 rounded-lg hover:opacity-90 transition"
+      </div>
+
+      <div className="flex flex-col space-y-1">
+        <label
+          htmlFor="password"
+          className="text-sm font-medium text-gray-700"
         >
-          Login
-        </button>
-      </form>
-    </div>
+          Password
+        </label>
+        <input
+          id="password"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-yellow-300 focus:border-transparent transition"
+          placeholder="••••••••"
+        />
+      </div>
+
+      <button
+        type="submit"
+        className="w-full py-3 bg-gradient-to-r from-orange-400 to-yellow-500 text-white font-semibold rounded-lg hover:scale-105 transition-transform"
+      >
+        Sign In
+      </button>
+
+      <div className="text-center text-sm text-gray-600">
+        Don’t have an account?{" "}
+        <Link href="/register" className="text-orange-500 hover:underline">
+          Register
+        </Link>
+      </div>
+    </form>
   );
 };
 
