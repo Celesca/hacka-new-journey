@@ -15,6 +15,7 @@ const LoginForm: React.FC = () => {
       return;
     }
     console.log("Logging in with:", { email, password });
+    
   };
 
   return (
