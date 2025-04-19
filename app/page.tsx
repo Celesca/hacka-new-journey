@@ -4,7 +4,7 @@ import Link from "next/link";
 const newsItems = [
   {
     id: 1,
-    title: "Global Hackathon 2025",
+    title: "International Artificial Intelligence Hackathon 2025",
     img: "/news/hackathon1.png",
     link: "/news/1",
   },
@@ -111,7 +111,7 @@ export default function Home() {
       <section>
         <div className="bg-gradient-to-r from-orange-400 to-yellow-400 rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between text-white">
           <div className="space-y-2 mb-4 md:mb-0">
-            <h2 className="text-2xl font-bold">Upgrade to Hacka Pro</h2>
+            <h2 className="text-2xl font-bold">Want to promote events?</h2>
             <p className="max-w-md">
               Get premium features: priority matching, exclusive events, and more!
             </p>
