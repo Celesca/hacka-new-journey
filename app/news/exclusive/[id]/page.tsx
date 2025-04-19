@@ -741,109 +741,61 @@ export default function ExclusiveHackathonDetailsPage() {
       </AnimatePresence>
 
       {/* Request to Join Modal */}
-      <AnimatePresence>
-        {showRequestJoinModal && selectedTeam && (
-          <motion.div 
-            className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+<AnimatePresence>
+  {showRequestJoinModal && selectedTeam && (
+    <motion.div 
+      className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <motion.div 
+        className="bg-white rounded-xl w-full max-w-lg max-h-[90vh] overflow-y-auto"
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.9, opacity: 0 }}
+      >
+        <div className="border-b border-gray-200 px-6 py-4 flex justify-between items-center">
+          <h3 className="font-bold text-lg text-gray-800">Join &ldquo;{selectedTeam.name}&rdquo;</h3>
+          <button 
+            onClick={() => setShowRequestJoinModal(false)}
+            className="text-gray-400 hover:text-gray-600"
           >
-            <motion.div 
-              className="bg-white rounded-xl w-full max-w-lg max-h-[90vh] overflow-y-auto"
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
+            ✕
+          </button>
+        </div>
+
+        <form onSubmit={handleJoinRequest} className="p-6 space-y-6">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
+            <input 
+              type="text"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none"
+              value={joinRequest.name}
+              onChange={(e) => setJoinRequest({...joinRequest, name: e.target.value})}
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Role You&apos;re Applying For</label>
+            <select
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none"
+              value={joinRequest.role}
+              onChange={(e) => setJoinRequest({...joinRequest, role: e.target.value})}
+              required
             >
-              <div className="border-b border-gray-200 px-6 py-4 flex justify-between items-center">
-                <h3 className="font-bold text-lg text-gray-800">Join "{selectedTeam.name}"</h3>
-                <button 
-                  onClick={() => setShowRequestJoinModal(false)}
-                  className="text-gray-400 hover:text-gray-600"
-                >
-                  ✕
-                </button>
-              </div>
-
-              <form onSubmit={handleJoinRequest} className="p-6 space-y-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
-                  <input 
-                    type="text"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none"
-                    value={joinRequest.name}
-                    onChange={(e) => setJoinRequest({...joinRequest, name: e.target.value})}
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Role You're Applying For</label>
-                  <select
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none"
-                    value={joinRequest.role}
-                    onChange={(e) => setJoinRequest({...joinRequest, role: e.target.value})}
-                    required
-                  >
-                    <option value="">Select a role</option>
-                    {selectedTeam.lookingFor.map(role => (
-                      <option key={role} value={role}>{role}</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Your Skills</label>
-                  <div className="flex flex-wrap gap-2">
-                    {skillOptions.map(skill => (
-                      <button
-                        type="button"
-                        key={skill}
-                        onClick={() => toggleSkill(skill)}
-                        className={`px-3 py-1 rounded-full text-sm ${
-                          joinRequest.skills.includes(skill) 
-                            ? 'bg-blue-500 text-white' 
-                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                        }`}
-                      >
-                        {skill}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Message to the Team</label>
-                  <textarea 
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none"
-                    value={joinRequest.message}
-                    onChange={(e) => setJoinRequest({...joinRequest, message: e.target.value})}
-                    rows={3}
-                    placeholder="Explain why you'd like to join this team and what you can contribute..."
-                    required
-                  />
-                </div>
-
-                <div className="pt-4 border-t border-gray-200 flex justify-end space-x-3">
-                  <button
-                    type="button"
-                    onClick={() => setShowRequestJoinModal(false)}
-                    className="px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    type="submit"
-                    className="px-4 py-2 bg-gradient-to-r from-orange-500 to-yellow-400 text-white rounded-lg hover:shadow-md transition"
-                  >
-                    Send Request
-                  </button>
-                </div>
-              </form>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              <option value="">Select a role</option>
+              {selectedTeam.lookingFor.map(role => (
+                <option key={role} value={role}>{role}</option>
+              ))}
+            </select>
+          </div>
+        </form>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
     </div>
   );
 }
