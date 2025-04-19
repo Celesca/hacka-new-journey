@@ -104,8 +104,8 @@ const hackathons: Hackathon[] = [
   },
   {
     id: 4,
-    title: "Climate Tech Hackathon",
-    img: "/news/hackathon4.jpg",
+    title: "Experiential Learning Program (ELP) #3",
+    img: "/news/hackathon4.png",
     date: "Oct 15 – Oct 20, 2025",
     registration: "Registration open until September 30, 2025",
     location: "London, UK",

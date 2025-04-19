@@ -19,6 +19,13 @@ export default function NavBar() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
+          <Image 
+            src="/Hacka_logo.jpg"
+            alt="Hacka Logo"
+            width={40}
+            height={40}
+            className="inline-block mr-2 rounded-full"
+          />
           <Link href="/" className="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 to-orange-600">
             Hacka
           </Link>
@@ -54,7 +61,7 @@ export default function NavBar() {
           <Link href="/profile" className="flex items-center space-x-2">
             <div className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-yellow-400">
               <Image
-                src="/avatar-placeholder.png"
+                src="/profile.jpg"
                 alt="Profile"
                 width={32}
                 height={32}
