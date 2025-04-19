@@ -75,51 +75,7 @@ const hackathons: Hackathon[] = [
       { name: "TechCorp Industries", logo: "/logos/techcorp.png" }
     ],
     requirements: "Teams of 2-5 members. At least one team member must have experience with machine learning frameworks.",
-    teams: [
-      {
-        id: "team1",
-        name: "Neural Navigators",
-        description: "We're building an AI solution for sustainable urban planning.",
-        members: [
-          {
-            id: "user1",
-            name: "Alex Chen",
-            role: "ML Engineer",
-            avatar: "/avatars/avatar1.jpg",
-            skills: ["Python", "TensorFlow", "Computer Vision"],
-            isLeader: true
-          },
-          {
-            id: "user2",
-            name: "Jamie Wong",
-            role: "UI/UX Designer",
-            avatar: "/avatars/avatar2.jpg",
-            skills: ["Figma", "User Research", "Prototyping"]
-          }
-        ],
-        maxMembers: 5,
-        lookingFor: ["Backend Developer", "Data Scientist", "Domain Expert"],
-        tags: ["Sustainability", "Urban Planning", "Social Impact"]
-      },
-      {
-        id: "team2",
-        name: "Deep Learning Dynamos",
-        description: "Working on an NLP solution for medical diagnostics.",
-        members: [
-          {
-            id: "user3",
-            name: "Sam Patel",
-            role: "Full-stack Developer",
-            avatar: "/avatars/avatar3.jpg",
-            skills: ["JavaScript", "React", "Node.js", "Python"],
-            isLeader: true
-          }
-        ],
-        maxMembers: 4,
-        lookingFor: ["ML Engineer", "Healthcare Professional", "Frontend Developer"],
-        tags: ["Healthcare", "NLP", "Diagnostics"]
-      }
-    ]
+    teams: []
   },
   // Keep other hackathons the same
   {
@@ -140,10 +96,54 @@ const hackathons: Hackathon[] = [
       { phase: "Winners Announced", date: "October 10, 2025" }
     ],
     organizers: [
-      { name: "AI Academy", logo: "/logos/ai-academy.png" }
+      { name: "AIAT", logo: "/logos/ai-academy.png" }
     ],
     requirements: "Individual participation only. Basic knowledge of Python and machine learning libraries required.",
-    teams: []
+    teams: [
+        {
+            id: "team1",
+            name: "Neural Navigators",
+            description: "We're building an AI solution for sustainable urban planning.",
+            members: [
+              {
+                id: "user1",
+                name: "Alex Chen",
+                role: "ML Engineer",
+                avatar: "/avatars/avatar1.jpg",
+                skills: ["Python", "TensorFlow", "Computer Vision"],
+                isLeader: true
+              },
+              {
+                id: "user2",
+                name: "Jamie Wong",
+                role: "UI/UX Designer",
+                avatar: "/avatars/avatar2.jpg",
+                skills: ["Figma", "User Research", "Prototyping"]
+              }
+            ],
+            maxMembers: 5,
+            lookingFor: ["Backend Developer", "Data Scientist", "Domain Expert"],
+            tags: ["Sustainability", "Urban Planning", "Social Impact"]
+          },
+          {
+            id: "team2",
+            name: "Deep Learning Dynamos",
+            description: "Working on an NLP solution for medical diagnostics.",
+            members: [
+              {
+                id: "user3",
+                name: "Sam Patel",
+                role: "Full-stack Developer",
+                avatar: "/avatars/avatar3.jpg",
+                skills: ["JavaScript", "React", "Node.js", "Python"],
+                isLeader: true
+              }
+            ],
+            maxMembers: 4,
+            lookingFor: ["ML Engineer", "Healthcare Professional", "Frontend Developer"],
+            tags: ["Healthcare", "NLP", "Diagnostics"]
+          }
+    ]
   },
   // Keep other hackathons the same
 ];
