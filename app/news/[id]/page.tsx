@@ -251,7 +251,7 @@ export default function HackathonDetailsPage() {
 
                 <div>
                   <h2 className="text-xl font-semibold text-gray-800">Prize</h2>
-                  <p className="mt-2 text-gray-600 font-bold text-xl text-orange-500">{hackathon.prize}</p>
+                  <p className="mt-2 font-bold text-xl text-orange-500">{hackathon.prize}</p>
                 </div>
 
                 <div>
