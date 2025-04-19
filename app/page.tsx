@@ -48,6 +48,23 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-orange-50 p-8 space-y-16">
 
+    {/* Hero logo image */}
+    <motion.div 
+      className="flex justify-center mb-8"
+      initial={{ opacity: 0, y: -30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      <div className="relative w-64 h-64">
+        <Image
+          src="/Hacka_logo.jpg"
+          alt="Hacka Logo"
+          fill
+          className="object-contain rounded-full"
+          priority
+        />
+      </div>
+    </motion.div>
       {/* Hero with animated text */}
       <div className="text-center space-y-4">
         <motion.h1
