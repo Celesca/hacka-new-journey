@@ -263,20 +263,20 @@ export default function ExclusiveHackathonDetailsPage() {
         });
     };
 
-    // Helper functions for form handling
-    const toggleSkill = (skill: string) => {
-        if (joinRequest.skills.includes(skill)) {
-            setJoinRequest({
-                ...joinRequest,
-                skills: joinRequest.skills.filter(s => s !== skill)
-            });
-        } else {
-            setJoinRequest({
-                ...joinRequest,
-                skills: [...joinRequest.skills, skill]
-            });
-        }
-    };
+    // // Helper functions for form handling
+    // const toggleSkill = (skill: string) => {
+    //     if (joinRequest.skills.includes(skill)) {
+    //         setJoinRequest({
+    //             ...joinRequest,
+    //             skills: joinRequest.skills.filter(s => s !== skill)
+    //         });
+    //     } else {
+    //         setJoinRequest({
+    //             ...joinRequest,
+    //             skills: [...joinRequest.skills, skill]
+    //         });
+    //     }
+    // };
 
     const toggleLookingFor = (role: string) => {
         if (teamForm.lookingFor.includes(role)) {
