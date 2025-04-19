@@ -53,39 +53,10 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-orange-50 p-8 space-y-16">
-      {/* Sticky Menu at Top Right */}
-<motion.div 
-  className="fixed top-4 right-4 z-50"
-  initial={{ y: -150, opacity: 0 }}
-  animate={{ y: 0, opacity: 1 }}
-  transition={{ delay: 0.5, type: "spring" }}
->
-  <div className="flex flex-col bg-white/90 backdrop-blur-md p-3 rounded-2xl shadow-lg space-y-3">
-    {menuItems.map((item, i) => (
-      <motion.div
-        key={item.id}
-        initial={{ scale: 0, x: 50 }}
-        animate={{ scale: 1, x: 0 }}
-        transition={{ delay: 0.7 + i * 0.1, type: "spring" }}
-      >
-        <Link 
-          href={item.href}
-          className="w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-tr from-orange-400 to-yellow-400 text-white hover:scale-110 transition-all"
-          title={item.label}
-        >
-          <span className="text-xl">{item.icon}</span>
-        </Link>
-        <span className="block text-center text-xs mt-1 font-medium text-gray-600">
-          {item.label}
-        </span>
-      </motion.div>
-    ))}
-  </div>
-</motion.div>
 
       {/* Hero with animated text */}
       <div className="text-center space-y-4">
-        <motion.h1 
+        <motion.h1
           className="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-orange-600"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -93,7 +64,7 @@ export default function Home() {
         >
           Welcome to Hacka
         </motion.h1>
-        <motion.p 
+        <motion.p
           className="text-gray-600 text-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -117,7 +88,7 @@ export default function Home() {
 
       {/* News Carousel with 3D effect */}
       <section>
-        <motion.h2 
+        <motion.h2
           className="text-3xl font-bold text-gray-800 mb-4"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -125,7 +96,7 @@ export default function Home() {
         >
           Latest News
         </motion.h2>
-        
+
         <div className="relative h-96 max-w-2xl mx-auto">
           <AnimatePresence mode="wait">
             {newsItems.map((item, idx) => (
@@ -152,7 +123,7 @@ export default function Home() {
                         {item.title}
                       </h3>
                       <p className="text-sm text-gray-500">{item.date}</p>
-                      <Link 
+                      <Link
                         href={item.link}
                         className="inline-block mt-2 text-sm text-orange-500 hover:underline"
                       >
@@ -164,16 +135,15 @@ export default function Home() {
               )
             ))}
           </AnimatePresence>
-          
+
           {/* News navigation dots */}
           <div className="absolute -bottom-8 left-0 right-0 flex justify-center space-x-2">
             {newsItems.map((_, idx) => (
-              <button 
+              <button
                 key={idx}
                 onClick={() => setActiveNews(idx)}
-                className={`w-3 h-3 rounded-full transition-all ${
-                  idx === activeNews ? "bg-orange-500 scale-125" : "bg-orange-200"
-                }`}
+                className={`w-3 h-3 rounded-full transition-all ${idx === activeNews ? "bg-orange-500 scale-125" : "bg-orange-200"
+                  }`}
                 aria-label={`Show news item ${idx + 1}`}
               />
             ))}
@@ -183,7 +153,7 @@ export default function Home() {
 
       {/* Chat Preview with staggered animations */}
       <section>
-        <motion.h2 
+        <motion.h2
           className="text-3xl font-bold text-gray-800 mb-4"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -213,7 +183,7 @@ export default function Home() {
                     className="object-cover"
                   />
                   {c.unread > 0 && (
-                    <motion.span 
+                    <motion.span
                       className="absolute -top-1 -right-1 flex items-center justify-center w-5 h-5 bg-red-500 text-white text-xs font-bold rounded-full"
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
@@ -243,7 +213,7 @@ export default function Home() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
       >
-        <motion.div 
+        <motion.div
           className="bg-gradient-to-r from-orange-400 to-yellow-400 rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between text-white"
           whileHover={{ scale: 1.02 }}
           animate={{ boxShadow: ["0px 0px 0px rgba(0,0,0,0.2)", "0px 0px 20px rgba(255,165,0,0.3)", "0px 0px 0px rgba(0,0,0,0.2)"] }}
