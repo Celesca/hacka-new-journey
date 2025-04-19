@@ -22,7 +22,8 @@ export default function MatchPage() {
     setIndex(i => i + 1);
   };
 
-  const handleDragEnd = (_: any, info: PanInfo) => {
+  // changed type of first param from `any` to `unknown`
+  const handleDragEnd = (_: unknown, info: PanInfo) => {
     if (info.offset.x > 120) swipe("like");
     else if (info.offset.x < -120) swipe("dislike");
   };
