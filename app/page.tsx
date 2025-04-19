@@ -5,7 +5,7 @@ const newsItems = [
   {
     id: 1,
     title: "Global Hackathon 2025",
-    img: "/news/hackathon1.jpg",
+    img: "/news/hackathon1.png",
     link: "/news/1",
   },
   {
