@@ -53,32 +53,35 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-orange-50 p-8 space-y-16">
-      {/* Animated Menu Icons */}
-      <motion.div 
-        className="fixed bottom-8 left-0 right-0 z-50 flex justify-center"
-        initial={{ y: 100 }}
-        animate={{ y: 0 }}
-        transition={{ delay: 0.5, type: "spring" }}
+      {/* Sticky Menu at Top Right */}
+<motion.div 
+  className="fixed top-4 right-4 z-50"
+  initial={{ y: -150, opacity: 0 }}
+  animate={{ y: 0, opacity: 1 }}
+  transition={{ delay: 0.5, type: "spring" }}
+>
+  <div className="flex flex-col bg-white/90 backdrop-blur-md p-3 rounded-2xl shadow-lg space-y-3">
+    {menuItems.map((item, i) => (
+      <motion.div
+        key={item.id}
+        initial={{ scale: 0, x: 50 }}
+        animate={{ scale: 1, x: 0 }}
+        transition={{ delay: 0.7 + i * 0.1, type: "spring" }}
       >
-        <div className="flex bg-white/70 backdrop-blur-md p-3 rounded-full shadow-lg space-x-4">
-          {menuItems.map((item, i) => (
-            <motion.div
-              key={item.id}
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.7 + i * 0.1, type: "spring" }}
-            >
-              <Link 
-                href={item.href}
-                className="w-14 h-14 flex flex-col items-center justify-center rounded-full bg-gradient-to-tr from-orange-400 to-yellow-400 text-white hover:scale-110 transition"
-              >
-                <span className="text-xl">{item.icon}</span>
-                <span className="text-xs mt-1">{item.label}</span>
-              </Link>
-            </motion.div>
-          ))}
-        </div>
+        <Link 
+          href={item.href}
+          className="w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-tr from-orange-400 to-yellow-400 text-white hover:scale-110 transition-all"
+          title={item.label}
+        >
+          <span className="text-xl">{item.icon}</span>
+        </Link>
+        <span className="block text-center text-xs mt-1 font-medium text-gray-600">
+          {item.label}
+        </span>
       </motion.div>
+    ))}
+  </div>
+</motion.div>
 
       {/* Hero with animated text */}
       <div className="text-center space-y-4">
