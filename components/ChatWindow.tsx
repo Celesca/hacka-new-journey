@@ -52,7 +52,7 @@ export default function ChatWindow() {
             {msg.sender === "them" && (
               <div className="w-8 h-8 mr-2 shrink-0 rounded-full overflow-hidden">
                 <Image
-                  src="/avatar-placeholder.png"
+                  src="/chat/chat2.jpg"
                   alt="Them"
                   width={32}
                   height={32}
@@ -76,7 +76,7 @@ export default function ChatWindow() {
             {msg.sender === "me" && (
               <div className="w-8 h-8 ml-2 shrink-0 rounded-full overflow-hidden">
                 <Image
-                  src="/avatar-me.png"
+                  src="/chat/sender.jpg"
                   alt="Me"
                   width={32}
                   height={32}
