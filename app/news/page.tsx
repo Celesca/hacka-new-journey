@@ -110,7 +110,7 @@ export default function NewsPage() {
           <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-orange-600">
             Upcoming Hackathons
           </h1>
-          <p className="mt-2 text-gray-600 text-lg">
+          <p className="mt-4 text-gray-600 text-lg">
             Find the perfect hackathon for your next challenge
           </p>
         </motion.div>
