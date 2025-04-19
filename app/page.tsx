@@ -59,9 +59,9 @@ export default function Home() {
             <Link
               key={n.id}
               href={n.link}
-              className="flex-shrink-0 w-64 bg-white rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition"
+              className="flex-shrink-0 w-72 bg-white rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition"
             >
-              <div className="relative h-40 w-full">
+              <div className="relative h-56 w-full">
                 <Image
                   src={n.img}
                   alt={n.title}
@@ -69,10 +69,11 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <div className="p-4">
+              <div className="p-4 space-y-1">
                 <h3 className="font-semibold text-lg text-gray-800">
                   {n.title}
                 </h3>
+                <p className="text-sm text-gray-500">{n.date}</p>
               </div>
             </Link>
           ))}
