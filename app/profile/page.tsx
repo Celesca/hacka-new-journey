@@ -8,7 +8,7 @@ export default function ProfilePage() {
         {/* Profile Image */}
         <div className="relative lg:w-1/3 h-64 lg:h-auto">
           <Image
-            src="/profile-pic.jpg"
+            src="/profile.jpg"
             alt="Profile Picture"
             fill
             className="object-cover"
@@ -18,7 +18,7 @@ export default function ProfilePage() {
         {/* Profile Info */}
         <div className="p-8 flex-1 space-y-6">
           <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-orange-600">
-            Jane Doe, 28
+            Sawit Koseeyaumporn, 21
           </h2>
           <p className="text-gray-600">📍 San Francisco, CA</p>
           <p className="text-gray-700">
