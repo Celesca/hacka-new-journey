@@ -54,7 +54,7 @@ export default function NavBar() {
           <Link href="/profile" className="flex items-center space-x-2">
             <div className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-yellow-400">
               <Image
-                src="/avatar-placeholder.png"
+                src="/profile.jpg"
                 alt="Profile"
                 width={32}
                 height={32}
