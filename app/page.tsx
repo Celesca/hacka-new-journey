@@ -34,12 +34,6 @@ const chatPreviews = [
   { id: 3, name: "Chris", avatar: "/chat/chat4.jpg", unread: 1 },
 ];
 
-const menuItems = [
-  { id: "match", icon: "👥", label: "Find Teams", href: "/match" },
-  { id: "chat", icon: "💬", label: "Chat", href: "/chat" },
-  { id: "news", icon: "📰", label: "Hackathons", href: "/news" },
-];
-
 export default function Home() {
   const [activeNews, setActiveNews] = useState(0);
 
