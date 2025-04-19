@@ -4,9 +4,9 @@ import { motion, AnimatePresence, PanInfo } from "framer-motion";
 import TeammateCard, { Teammate } from "@/components/TeammateCard";
 
 const DECK: Teammate[] = [
-  { id: 1, name: "Alex", age: 25, location: "NYC", skills: ["React","GraphQL"], avatar: "/avatars/alex.jpg", category: "Frontend" },
-  { id: 2, name: "Bella", age: 29, location: "LA", skills: ["Node.js","Express"], avatar: "/avatars/bella.jpg", category: "Backend" },
-  { id: 3, name: "Chris", age: 22, location: "Toronto", skills: ["UI/UX","Figma"], avatar: "/avatars/chris.jpg", category: "Design" },
+  { id: 1, name: "Alex", age: 25, location: "NYC", skills: ["React","GraphQL"], avatar: "/chat/chat2.jpg", category: "Frontend" },
+  { id: 2, name: "Bella", age: 29, location: "LA", skills: ["Node.js","Express"], avatar: "/chat/chat3.jpg", category: "Backend" },
+  { id: 3, name: "Chris", age: 22, location: "Toronto", skills: ["UI/UX","Figma"], avatar: "/chat/chat4.jpg", category: "Design" },
   // …more
 ];
 
