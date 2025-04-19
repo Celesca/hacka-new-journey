@@ -12,30 +12,9 @@ interface Conversation {
 }
 
 const CONVERSATIONS: Conversation[] = [
-  {
-    id: 1,
-    name: "Alex",
-    lastMessage: "Sure, let’s use Next.js!",
-    avatar: "/chat/chat2.jpg",
-    unread: 2,
-    updatedAt: "2m ago",
-  },
-  {
-    id: 2,
-    name: "Bella",
-    lastMessage: "I’ll handle the backend.",
-    avatar: "/chat/chat3.jpg",
-    unread: 0,
-    updatedAt: "1h ago",
-  },
-  {
-    id: 3,
-    name: "Chris",
-    lastMessage: "Sent you the design mockups.",
-    avatar: "/chat/chat4.jpg",
-    unread: 5,
-    updatedAt: "Yesterday",
-  },
+  { id: 1, name: "Alex", lastMessage: "Sure, let’s use Next.js!", avatar: "/chat/chat2.jpg", unread: 2, updatedAt: "2m ago" },
+  { id: 2, name: "Bella", lastMessage: "I’ll handle the backend.", avatar: "/chat/chat3.jpg", unread: 0, updatedAt: "1h ago" },
+  { id: 3, name: "Chris", lastMessage: "Sent you the design mockups.", avatar: "/chat/chat4.jpg", unread: 5, updatedAt: "Yesterday" },
 ];
 
 export default function ChatList() {
@@ -46,7 +25,7 @@ export default function ChatList() {
         {CONVERSATIONS.map((c) => (
           <li
             key={c.id}
-            className="flex items-center px-4 py-2 hover:bg-yellow-50 cursor-pointer"
+            className="relative flex items-center px-4 py-2 hover:bg-yellow-50 cursor-pointer"
           >
             <div className="relative w-12 h-12 rounded-full overflow-hidden ring-2 ring-yellow-300 mr-3">
               <Image
@@ -56,12 +35,12 @@ export default function ChatList() {
                 height={48}
                 className="object-cover"
               />
-              {c.unread > 0 && (
-                <span className="absolute -top-1 -right-1 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-semibold leading-none text-white bg-red-500 rounded-full">
-                  {c.unread}
-                </span>
-              )}
             </div>
+            {c.unread > 0 && (
+              <span className="absolute top-2 left-12 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-semibold text-white bg-red-500 rounded-full">
+                {c.unread}
+              </span>
+            )}
             <div className="flex-1 min-w-0">
               <div className="flex justify-between items-center">
                 <span className="font-medium text-gray-800 truncate">{c.name}</span>
