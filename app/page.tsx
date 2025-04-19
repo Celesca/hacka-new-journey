@@ -10,14 +10,14 @@ const newsItems = [
   },
   {
     id: 2,
-    title: "AI & ML Challenge",
-    img: "/news/ai-ml.jpg",
+    title: "CAI Club Hackathon 2025",
+    img: "/news/hackathon2.png",
     link: "/news/2",
   },
   {
     id: 3,
-    title: "Blockchain Innovation",
-    img: "/news/blockchain.jpg",
+    title: "Super AI Engineer Season 5",
+    img: "/news/hackathon3.jpg",
     link: "/news/3",
   },
 ];
