@@ -76,7 +76,7 @@ export default function ChatWindow() {
             {msg.sender === "me" && (
               <div className="w-8 h-8 ml-2 shrink-0 rounded-full overflow-hidden">
                 <Image
-                  src="/chat/sender.jpg"
+                  src="/chat/chat1.jpg"
                   alt="Me"
                   width={32}
                   height={32}

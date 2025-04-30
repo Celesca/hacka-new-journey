@@ -1,9 +1,12 @@
 "use client";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function NavBar() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
   const menuItems = [
     { id: "news", icon: "📰", label: "News", href: "/news" },
     { id: "match", icon: "👥", label: "Match", href: "/match" },
@@ -31,7 +34,7 @@ export default function NavBar() {
           </Link>
         </motion.div>
 
-        {/* Animated Menu Links */}
+        {/* Desktop Menu */}
         <ul className="hidden md:flex items-center space-x-4">
           {menuItems.map((item, i) => (
             <motion.li
@@ -51,7 +54,7 @@ export default function NavBar() {
           ))}
         </ul>
 
-        {/* Profile with animation */}
+        {/* Profile and Mobile Toggle */}
         <motion.div 
           className="flex items-center space-x-4"
           initial={{ opacity: 0, x: 20 }}
@@ -72,9 +75,12 @@ export default function NavBar() {
               Profile
             </span>
           </Link>
-          
           {/* Mobile menu toggle */}
-          <button className="md:hidden text-gray-700 hover:text-orange-500">
+          <button
+            className="md:hidden text-gray-700 hover:text-orange-500 focus:outline-none"
+            onClick={() => setMobileOpen((v) => !v)}
+            aria-label="Open menu"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none"
                  viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -83,6 +89,44 @@ export default function NavBar() {
           </button>
         </motion.div>
       </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            key="mobile-menu"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="md:hidden bg-white shadow-inner overflow-hidden"
+          >
+            <ul className="flex flex-col px-6 py-4 space-y-2">
+              {menuItems.map((item) => (
+                <li key={item.id}>
+                  <Link
+                    href={item.href}
+                    className="flex items-center space-x-2 text-gray-700 hover:text-orange-500 transition px-2 py-2"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    <span className="text-lg">{item.icon}</span>
+                    <span>{item.label}</span>
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link
+                  href="/profile"
+                  className="flex items-center space-x-2 text-gray-700 hover:text-orange-500 transition px-2 py-2"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  <span className="text-lg">👤</span>
+                  <span>Profile</span>
+                </Link>
+              </li>
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
